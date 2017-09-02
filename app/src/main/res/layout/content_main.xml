@@ -50,16 +50,16 @@
         android:text="List View"
         android:id="@+id/buttonListView"
         android:layout_below="@+id/buttonAddMovie"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignEnd="@+id/buttonAddMovie"
+        android:layout_toEndOf="@+id/textView3" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textMovieName"
-        android:layout_marginTop="117dp"
-        android:layout_below="@+id/buttonTest"
+        android:layout_alignTop="@+id/textView2"
         android:layout_alignEnd="@+id/buttonTest"
-        android:layout_alignStart="@+id/buttonListView" />
+        android:layout_toEndOf="@+id/textView2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,16 +67,85 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Movie Name"
         android:id="@+id/textView2"
-        android:layout_alignTop="@+id/textMovieName"
-        android:layout_alignStart="@+id/textTest" />
+        android:layout_below="@+id/textTest"
+        android:layout_alignStart="@+id/textTest"
+        android:layout_marginTop="35dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD MOVIE"
         android:id="@+id/buttonAddMovie"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textRelease"
+        android:layout_alignStart="@+id/textRelease" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Runtime"
+        android:id="@+id/textView3"
+        android:layout_alignTop="@+id/textRuntime"
+        android:layout_toStartOf="@+id/textMovieName" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textRuntime"
+        android:layout_below="@+id/textMovieName"
+        android:layout_alignEnd="@+id/textMovieName"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Director"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textRuntime"
+        android:layout_toStartOf="@+id/textRuntime" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textDirector"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_alignEnd="@+id/textRuntime"
+        android:layout_toEndOf="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Genre"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/textDirector"
+        android:layout_toStartOf="@+id/textDirector" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textGenre"
+        android:layout_below="@+id/textDirector"
+        android:layout_alignEnd="@+id/textDirector"
+        android:layout_toEndOf="@+id/textView5" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textRelease"
+        android:layout_below="@+id/textGenre"
+        android:layout_alignStart="@+id/textGenre"
+        android:layout_alignEnd="@+id/textGenre" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Release Date"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/textGenre"
+        android:layout_toStartOf="@+id/textGenre" />
 
     <!--app:layout_constraintBaseline_toBaselineOf="@id/textTest"-->
     <!--app:layout_constraintLeft_toRightOf="@+id/textTest"-->

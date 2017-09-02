@@ -19,7 +19,8 @@ import com.example.mmart.testapp.Objects.Movies;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    ArrayList<Movies> listMovies = new ArrayList<Movies>();
+    public static final int CODE_RETURN = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
         Button btnAddMovie = (Button) findViewById(R.id.buttonAddMovie);
         final EditText txtName = (EditText) findViewById(R.id.textTest);
         final EditText txtMovieName = (EditText) findViewById(R.id.textMovieName);
+        final EditText txtRuntime = (EditText) findViewById(R.id.textRuntime);
+        final EditText txtDirector = (EditText) findViewById(R.id.textDirector);
+        final EditText txtGenre = (EditText) findViewById(R.id.textGenre);
+        final EditText txtRelease = (EditText) findViewById(R.id.textRelease);
 
         setSupportActionBar(toolbar);
 
@@ -57,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MovieListActivity.class);
-                startActivity(intent);
+                intent.putExtra("Parcel", listMovies);
+                //startActivity(intent);
+                startActivityForResult(intent, CODE_RETURN);
             }
         });
 
@@ -65,16 +72,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = txtMovieName.getText().toString();
+                String runtime = txtRuntime.getText().toString();
+                String director = txtDirector.getText().toString();
+                String genre = txtGenre.getText().toString();
+                String release = txtRelease.getText().toString();
                 Movies movie = new Movies(
-                    name, "1:30",
-                    "Director Mike",
-                    "Action", "9/1/2017");
-                MovieListActivity.listMovies.add(movie);
+                    name, runtime,
+                    director, genre, release);
+                listMovies.add(movie);
                 Toast.makeText(getApplicationContext(), "Added " + name + " to list", Toast.LENGTH_LONG).show();
             }
         });
 
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK && requestCode == CODE_RETURN) {
+            //Swap lists
+            listMovies = this.getIntent().getParcelableArrayListExtra("ReturnParcel");
+            Toast.makeText(getApplicationContext(), "Finished List View activity", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
