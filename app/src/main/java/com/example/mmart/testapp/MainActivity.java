@@ -13,6 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.mmart.testapp.Objects.MovieAdapter;
+import com.example.mmart.testapp.Objects.Movies;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -21,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         Button btnClick = (Button) findViewById(R.id.buttonTest);
+        Button btnListView = (Button) findViewById(R.id.buttonListView);
+        Button btnAddMovie = (Button) findViewById(R.id.buttonAddMovie);
         final EditText txtName = (EditText) findViewById(R.id.textTest);
+        final EditText txtMovieName = (EditText) findViewById(R.id.textMovieName);
 
         setSupportActionBar(toolbar);
 
@@ -42,6 +50,27 @@ public class MainActivity extends AppCompatActivity {
                 String message = txtName.getText().toString();
                 intent.putExtra("Mensaje", message);
                 startActivity(intent);
+            }
+        });
+
+        btnListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MovieListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnAddMovie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = txtMovieName.getText().toString();
+                Movies movie = new Movies(
+                    name, "1:30",
+                    "Director Mike",
+                    "Action", "9/1/2017");
+                MovieListActivity.listMovies.add(movie);
+                Toast.makeText(getApplicationContext(), "Added " + name + " to list", Toast.LENGTH_LONG).show();
             }
         });
 

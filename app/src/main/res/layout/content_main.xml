@@ -44,6 +44,40 @@
         android:layout_toEndOf="@+id/textTest"
         android:layout_marginStart="17dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List View"
+        android:id="@+id/buttonListView"
+        android:layout_below="@+id/buttonAddMovie"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textMovieName"
+        android:layout_marginTop="117dp"
+        android:layout_below="@+id/buttonTest"
+        android:layout_alignEnd="@+id/buttonTest"
+        android:layout_alignStart="@+id/buttonListView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Movie Name"
+        android:id="@+id/textView2"
+        android:layout_alignTop="@+id/textMovieName"
+        android:layout_alignStart="@+id/textTest" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD MOVIE"
+        android:id="@+id/buttonAddMovie"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
     <!--app:layout_constraintBaseline_toBaselineOf="@id/textTest"-->
     <!--app:layout_constraintLeft_toRightOf="@+id/textTest"-->
     <!--app:layout_constraintRight_toRightOf="parent"-->
