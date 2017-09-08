@@ -45,6 +45,10 @@ public class MovieListActivity extends AppCompatActivity {
 
     public void codeReturn() {
         Intent intent = new Intent();
+        listMovies = new ArrayList<Movies>();
+        for(int i = 0; i < movieAdapter.getCount(); i++){
+            listMovies.add(movieAdapter.getItem(i));
+        }
         intent.putExtra("ReturnParcel", listMovies);
         setResult(Activity.RESULT_OK, intent);
         finish();

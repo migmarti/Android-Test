@@ -38,14 +38,14 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         btnClick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
                     name, runtime,
                     director, genre, release);
                 listMovies.add(movie);
-                Toast.makeText(getApplicationContext(), "Added " + name + " to list", Toast.LENGTH_LONG).show();
+                Snackbar.make(view, "Added " + name + " to list", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                //Toast.makeText(getApplicationContext(), "Added " + name + " to list", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -91,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == CODE_RETURN) {
             //Swap lists
-            listMovies = this.getIntent().getParcelableArrayListExtra("ReturnParcel");
-            Toast.makeText(getApplicationContext(), "Finished List View activity", Toast.LENGTH_LONG).show();
+            listMovies = data.getParcelableArrayListExtra("ReturnParcel");
+            //Toast.makeText(getApplicationContext(), "Finished List View activity", Toast.LENGTH_SHORT).show();
         }
     }
 
